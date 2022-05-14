@@ -1,0 +1,8 @@
+Django==4.0.4
+djangorestframework==3.13.1
+orjson==3.6.8
+pymemcache==3.5.2
+python-decouple==3.6
+python_memcached==1.59
+requests==2.27.1
+memcache~=0.11.0
