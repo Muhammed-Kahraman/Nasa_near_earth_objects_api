@@ -48,6 +48,7 @@ def getDates(request, start_date="", end_date=""):
         api_key = config('apiKey')
         date_format = "%Y-%m-%d"
         oldest_date_contains_data = datetime.datetime.strptime('1899-12-30', date_format)
+        latest_date_contains_data = datetime.datetime.strptime('2201-01-01',date_format)
         try:
             # Checking if the start and end date are in valid format.
             start_date = datetime.datetime.strptime(start_date, date_format)
@@ -77,6 +78,22 @@ def getDates(request, start_date="", end_date=""):
                     return Response("The oldest date that contains data 1899-12-30."
                                     " You can't go back any further than that date. ",
                                     status=status.HTTP_400_BAD_REQUEST)
+
+                # Checking Is the start date later than the latest date.
+                if start_date != latest_date_contains_data or end_date != latest_date_contains_data:
+                    if start_date.year >= latest_date_contains_data.year \
+                        and start_date.month >= latest_date_contains_data.month \
+                        and start_date.day >= latest_date_contains_data.day:
+                        return Response("The latest date that contains data 2201-01-01."
+                                        "You can't go any further than that date. (For now)",status=status.HTTP_400_BAD_REQUEST)
+
+                    # Checking Is the end date later than the latest date.
+                    elif end_date.year >= latest_date_contains_data.year \
+                        and end_date.month >= latest_date_contains_data.month \
+                        and end_date.day >= latest_date_contains_data.day:
+                        return Response("The latest date that contains data 2201-01-01."
+                                        "You can't go any further than that date. (For now)",status=status.HTTP_400_BAD_REQUEST)
+
         except ValueError:
             is_valid_date = False
 
