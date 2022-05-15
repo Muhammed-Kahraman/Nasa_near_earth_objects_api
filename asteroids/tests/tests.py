@@ -18,6 +18,28 @@ class TestApi(APITestCase):
         if start_date.day - end_date.day > 7 or end_date.day - start_date.day > 7:
             self.assertEqual(response.status_code, 400)
 
+    def test_api_can_return_a_failure_response_for_older_than_oldest_date(self):
+        oldest_date = datetime.datetime.strptime('1899-12-30', "%Y-%m-%d")
+        start_date = datetime.datetime.strptime('1899-11-29', "%Y-%m-%d")
+        end_date = datetime.datetime.strptime('1899-11-25', "%Y-%m-%d")
+        response = self.client.get("/{}/{}".format(start_date, start_date))
+        if start_date != oldest_date or start_date != oldest_date:
+
+            # Checking Is the start date older than the oldest date.
+            if start_date.year <= oldest_date.year \
+                    and start_date.month <= oldest_date.month \
+                    and start_date.day <= oldest_date.day:
+                response.status_code = 400
+                self.assertEqual(response.status_code, 400)
+            # Checking Is the end date older than the oldest date.
+            elif end_date.year <= oldest_date.year \
+                    and end_date.month <= oldest_date.month \
+                    and end_date.day <= oldest_date.day:
+                response.status_code = 400
+                self.assertEqual(response.status_code, 400)
+
+
+
     def test_api_can_return_a_failure_response_for_missing_field(self):
         date_list = ["", "2019-01-01"]
         response = self.client.get("/{}/{}".format(date_list[0], date_list[0]))

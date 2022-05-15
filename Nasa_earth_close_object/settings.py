@@ -14,6 +14,7 @@ from pathlib import Path
 import memcache
 import pymemcache
 from decouple import config
+import warnings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -106,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SILENCED_SYSTEM_CHECKS = ['urls.W002', 'security.W019']
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
