@@ -14,6 +14,7 @@ Date format: YYYY-MM-DD
 Maximum possible day between start date and end date: 7
 
 The oldest date you can make a request: 1899-12-30
+
 The latest date you can make a request: 2201-01-01
 
 <p dir="auto"> </p>
