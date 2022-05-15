@@ -1,6 +1,5 @@
 # Importing the necessary libraries.
 import datetime
-from pprint import pprint
 
 import orjson
 import requests
@@ -40,10 +39,6 @@ def getDates(request, start_date="", end_date=""):
     else:
         # Defining variable we need in the future.
         is_valid_date = True
-        name_string = "Name: "
-        closes_date_string = 'Close_approach_date_full: '
-        estimated_diameter_name = 'Estimated_diameter (km):'
-        miss_distance_string = 'Miss_distance:'
         dates = []
         all_data = []
         api_key = config('apiKey')
@@ -128,17 +123,17 @@ def getDates(request, start_date="", end_date=""):
             for date in dates:
                 collection = json_data.get('near_earth_objects')
                 unsplit_data = collection.get('{}'.format(date))
-                day_list = []
+
                 # Iterating over the data for getting specific data each asteroid.
                 for list_data in unsplit_data:
                     name = list_data.get('name')
                     closes_date = list_data.get('close_approach_data')
                     estimated_diameter = list_data.get('estimated_diameter')
                     estimated_diameter_kilometers = estimated_diameter.get('kilometers')
-                    json_dict =  {
+                    json_dict = {
                         'name': name,
                         'closest_date': closes_date[0].get('close_approach_date_full'),
-                        'miss_distance_km' : closes_date[0].get('miss_distance').get('kilometers'),
+                        'miss_distance_km': closes_date[0].get('miss_distance').get('kilometers'),
                         'estimated_diameter_km': estimated_diameter_kilometers
                     }
                     all_data.append(json_dict)
