@@ -1,8 +1,5 @@
 .env
 db.sqlite3
-package-lock.json
-media
-static
 .idea
 venv
 __pycache__
