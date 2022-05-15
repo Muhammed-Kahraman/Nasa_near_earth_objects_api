@@ -29,12 +29,8 @@
 <li>Install dependencies in new environment</li>
 </ol>
 <div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="pip install -r requirements.txt"><pre>pip install -r requirements.txt</pre></div>
-<ol start="6" dir="auto">
 <div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="pip install -r requirements.txt"><pre> Create a .env file same directory with the project.</pre></div>
-</ol>
-<ol start="7" dir="auto">
 <div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="pip install -r requirements.txt"><pre> Set up secret_key and nasa apikey inside this file (secret_key = "", apiKey = "")</pre></div>
-</ol>
 <ol start="8" dir="auto">
 <li>Run the server locally</li>
 </ol>
