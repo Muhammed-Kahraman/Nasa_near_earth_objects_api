@@ -3,12 +3,14 @@
 Retrieve a json array of Asteroids special information ordered by the their closest passing point to (km) to Earth.
 
 - Which information you can get with this API?
-      Asteroids name,
-      Closest approach date,
-      Closest passing point (km) from Earth, 
-      Min Estimated diameter (km) and max Estimated diameter (km)
+
+     - Asteroids name,
+     - Closest approach date,
+     - Closest passing point (km) from Earth, 
+     - Min Estimated diameter (km) and max Estimated diameter (km)
 
 Date format: YYYY-MM-DD
+
 Maximum possible day between start date and end date: 7
 
 
