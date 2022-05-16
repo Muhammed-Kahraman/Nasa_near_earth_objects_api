@@ -49,11 +49,11 @@ def getDates(request, start_date="", end_date=""):
             # Checking if the start and end date are in valid format.
             start_date = datetime.datetime.strptime(start_date, date_format)
             end_date = datetime.datetime.strptime(end_date, date_format)
-            if start_date.day - end_date.day > 7 or start_date.day - end_date.day > 7:
+            if start_date.day - end_date.day > 7 or end_date.day - start_date.day > 7:
                 return Response('The difference between start and end date is cannot be more than 7 '
                                 'days',
                                 status=status.HTTP_400_BAD_REQUEST)
-
+            # Checking if the start and end date are in valid format.
             # Checking start date or end date not equals the oldest date.
             if start_date != oldest_date_contains_data or end_date != oldest_date_contains_data:
 
