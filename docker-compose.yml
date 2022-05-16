@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   django:
-    image: django-docker:0.0.1
+    image: django-nasa-rest-api-docker:0.0.1
     build: .
     ports:
       - '8000:8000'
