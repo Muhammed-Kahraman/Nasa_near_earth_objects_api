@@ -34,7 +34,7 @@ The latest date you can make a request: 2201-01-01
 <ol start="4" dir="auto">
 <li>Activate the new environment</li>
 </ol>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="source env/bin/activate"><pre><span class="pl-c1">source</span> .\env\Scripts\activate </pre></div>
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="source env/bin/activate"><pre><span class="pl-c1">.\env\Scripts\activate </pre></div>
 <ol start="5" dir="auto">
 <li>Install dependencies in new environment</li>
 </ol>
