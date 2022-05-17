@@ -12,7 +12,7 @@ COPY . .
 
 RUN python manage.py migrate
 
-Run python manage.py makemigrations
+RUN python manage.py makemigrations
 
 EXPOSE 8000
 
